@@ -1,0 +1,1 @@
+{"name":"Local: Exponentiation","url":"/home/jaip/Desktop/ohok/ohok/1400/Exponentiation.cpp","tests":[{"id":1726651904495,"input":"3\n3 4\n2 8\n123 123","output":"81\n256\n921450052"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/jaip/Desktop/ohok/ohok/1400/Exponentiation.cpp","group":"local","local":true}
