@@ -18,13 +18,21 @@ using namespace std;
 const int mod=1e9+7;
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    int n;
+    cin>>n;
+    string a="aeiou";
+    if(n>5){
+        for(int i=0;i<n-5;i++){
+            cout<<a[0];
+        }
+        cout<<a<<endl;
     }
-    sort(allr(a));
+    else{
+        for(int i=0;i<n;i++){
+            cout<<a[i];
+        }
+        cout<<endl;
+    }
     
 
 }

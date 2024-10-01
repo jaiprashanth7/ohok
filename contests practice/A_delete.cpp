@@ -18,14 +18,14 @@ using namespace std;
 const int mod=1e9+7;
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    string a;
+    cin>>a;
+    string ans="";
+    for(int i=0;i<a.size();i++){
+        if(a[i]!='.') ans+=a[i];
     }
-    sort(allr(a));
-    
+    cout<<ans<<endl;
+
 
 }
 
@@ -35,7 +35,7 @@ int32_t main(){
       fast;
       int t=1;
       
-     cin>>t;
+    //  cin>>t;
       while(t--){
        solve();
       }

@@ -20,12 +20,22 @@ const int mod=1e9+7;
 void solve(){
     int n,k;
     cin>>n>>k;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    int l=0,r=n;
+    while(l+1<r){
+        int m=(l+r)/2;
+        int s1=(m)*(m-1)/2 +k*m;
+        int s2=k*(n-m) + n*(n-1)/2 -(m*(m-1))/2;
+        if(s1<s2){
+            l=m;
+        }else{
+            r=m;
+        }
     }
-    sort(allr(a));
-    
+    int s1=l*(l-1)/2 +k*l;
+    int s2=n*(n-1)/2 +k*(n-l) -l*(l-1)/2;
+    int s3=k*r + r*(r-1)/2;
+    int s4=k*(n-r) + n*(n-1)/2 -r*(r-1)/2;
+    cout<<min(abs(s2-s1),abs(s3-s4))<<endl;
 
 }
 

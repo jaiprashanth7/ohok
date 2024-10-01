@@ -16,16 +16,52 @@ using namespace std;
 #define fav(tmp, x) for (auto tmp : x)
 #define MAXN 202020
 const int mod=1e9+7;
+const int N=2e5+5;
+vector<int>par(N);
+set<int>s[N];
+int find(int x){
+    if(x==par[x]) return x;
+    return par[x]=find(par[x]);
+}
+void join(int x,int y){
+    x=find(x);
+    y=find(y);
+    if(x!=y){
+        par[x]=y;
+        for(auto it : s[x]){
+            s[y].insert(it);
+        }
+        while(s[y].size()>10) s[y].erase(s[y].begin());
+
+    }
+}
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+   int n,q;
+   cin>>n>>q;
+   for(int i=1;i<=n;i++){
+        s[i].insert(i);
+        par[i]=i;
+   }
+   while(q--){
+    int op,x,y;
+    cin>>op>>x>>y;
+    if(op==1){
+        join(x,y);
+    }else{
+        x=find(x);
+        if(s[x].size()<y){
+            cout<<"-1\n";
+        }else{
+            auto it=--s[x].end();
+            for(int i=1;i<y;i++){
+                it--;
+            }
+            cout<<(*it)<<endl;
+        }
     }
-    sort(allr(a));
-    
+   }
+
 
 }
 
@@ -35,7 +71,7 @@ int32_t main(){
       fast;
       int t=1;
       
-     cin>>t;
+    //  cin>>t;
       while(t--){
        solve();
       }

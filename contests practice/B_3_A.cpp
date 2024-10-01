@@ -18,14 +18,33 @@ using namespace std;
 const int mod=1e9+7;
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    int m;
+    cin>>m;
+    int x=1;
+    vi a;
+    while(x<=1e5){
+        a.push_back(x);
+        x*=3;
     }
-    sort(allr(a));
-    
+    vi ans;
+    while(m>0){
+        int idx=lower_bound(all(a),m)-a.begin();
+        if(a[idx]!=m){
+            idx--;
+        }
+        
+        ans.push_back(idx);
+        
+        //cout<<m<<" "<<a[idx]<<endl;
+        m-=a[idx];
+
+
+    }
+    cout<<ans.size()<<endl;
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+
 
 }
 
@@ -35,7 +54,7 @@ int32_t main(){
       fast;
       int t=1;
       
-     cin>>t;
+    //  cin>>t;
       while(t--){
        solve();
       }

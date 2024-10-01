@@ -17,16 +17,35 @@ using namespace std;
 #define MAXN 202020
 const int mod=1e9+7;
 
-void solve(){
-    int n,k;
-    cin>>n>>k;
-    vi a(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    sort(allr(a));
-    
+bool ask(string t){
+    cout<<"? "<<t<<endl;
+    int x;
+    cin>>x;
+    return x;
+}
+void ans(string s){
+    cout<<"! "<<s<<endl;
+}
 
+void solve(){
+    int n;
+    cin>>n;
+    string cur;
+    while(cur.size()<n){
+        if(ask(cur+"0")){
+            cur+="0";
+        }else if(ask(cur+"1")){
+            cur+="1";
+        }else break;
+    }
+    while(cur.size()<n){
+        if(ask("0"+cur)){
+            cur="0"+cur;
+        }else{
+            cur="1"+cur;
+        }
+    }
+    ans(cur);
 }
 
  

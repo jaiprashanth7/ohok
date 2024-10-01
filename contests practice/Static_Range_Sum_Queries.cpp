@@ -18,14 +18,22 @@ using namespace std;
 const int mod=1e9+7;
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
+    int n,q;
+    cin>>n>>q;
     vi a(n);
+    vi b(n+1,0);
     for(int i=0;i<n;i++){
         cin>>a[i];
+        
     }
-    sort(allr(a));
-    
+    for(int i=1;i<=n;i++){
+        b[i]=a[i-1]+b[i-1];
+    }
+    while(q--){
+        int l,r;
+        cin>>l>>r;
+        cout<<b[r]-b[l-1]<<endl;
+    }
 
 }
 
@@ -35,7 +43,7 @@ int32_t main(){
       fast;
       int t=1;
       
-     cin>>t;
+    //  cin>>t;
       while(t--){
        solve();
       }

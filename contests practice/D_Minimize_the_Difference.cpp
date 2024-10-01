@@ -18,14 +18,24 @@ using namespace std;
 const int mod=1e9+7;
 
 void solve(){
-    int n,k;
-    cin>>n>>k;
-    vi a(n);
+    int n;
+    cin>>n;
+    int mx=INT_MIN;
     for(int i=0;i<n;i++){
-        cin>>a[i];
+      int x;
+      cin>>x;
+      mx=max(mx,x);
+
     }
-    sort(allr(a));
-    
+    int mxx=INT_MIN;
+    for(int i=0;i<n;i++){
+      int x;
+      cin>>x;
+      mxx=max(mxx,x);
+    }
+    cout<<mx+mxx<<endl;
+
+
 
 }
 
@@ -35,7 +45,7 @@ int32_t main(){
       fast;
       int t=1;
       
-     cin>>t;
+    //  cin>>t;
       while(t--){
        solve();
       }
